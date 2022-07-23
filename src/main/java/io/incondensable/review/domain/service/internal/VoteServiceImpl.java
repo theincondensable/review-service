@@ -39,11 +39,12 @@ public class VoteServiceImpl implements VoteService {
         List<ProductVotesDto> response = new ArrayList<>();
 
         input.forEach(
-                entity -> response.add(
+                model -> response.add(
                         new ProductVotesDto(
-                                entity.getId(),
-                                entity.getScore(),
-                                entity.getProductId()
+                                model.getId(),
+                                model.getScore(),
+                                model.getProductId(),
+                                model.getUserId()
                         )
                 )
         );

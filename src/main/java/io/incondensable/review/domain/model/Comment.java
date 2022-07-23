@@ -5,19 +5,21 @@ public class Comment {
     private String context;
     private Byte status;
     private Long productId;
+    private Long userId;
 
     public Comment() {
     }
 
-    private Comment(Long id, String context, Byte status, Long productId) {
+    private Comment(Long id, String context, Byte status, Long productId ,Long userId) {
         this.id = id;
         this.context = context;
         this.status = status;
         this.productId = productId;
+        this.userId = userId;
     }
 
-    public static Comment build(Long id, String context, Byte status, Long productId) {
-        return new Comment(id, context, status, productId);
+    public static Comment build(Long id, String context, Byte status, Long productId, Long userId) {
+        return new Comment(id, context, status, productId, userId);
     }
 
     public Long getId() {
@@ -52,4 +54,11 @@ public class Comment {
         this.productId = productId;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 }

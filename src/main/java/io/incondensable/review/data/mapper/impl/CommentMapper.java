@@ -14,7 +14,8 @@ public class CommentMapper implements LocalMapper<CommentEntity, Comment> {
                 entity.getId(),
                 entity.getContext(),
                 entity.getStatus().getCode(),
-                entity.getProduct().getId()
+                entity.getProduct().getId(),
+                entity.getUser().getId()
         );
     }
 

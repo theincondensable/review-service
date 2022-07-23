@@ -14,7 +14,8 @@ public class VoteMapper implements LocalMapper<VoteEntity, Vote> {
                 entity.getId(),
                 entity.getScore(),
                 entity.getStatus().getCode(),
-                entity.getProduct().getId()
+                entity.getProduct().getId(),
+                entity.getUser().getId()
         );
     }
 

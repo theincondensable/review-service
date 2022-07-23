@@ -1,9 +1,9 @@
 package io.incondensable.review.web.service;
 
-import io.incondensable.review.web.dto.ProductWithVotesResponse;
+import io.incondensable.review.web.dto.ProductVotesResponse;
 
 public interface ReviewService {
 
-    ProductWithVotesResponse showProductsWithApprovedCommentsAndVotes(long productId);
+    ProductVotesResponse showProductsWithApprovedCommentsAndVotes(long productId);
 
 }

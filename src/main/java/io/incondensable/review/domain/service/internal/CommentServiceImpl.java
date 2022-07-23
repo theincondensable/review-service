@@ -39,11 +39,12 @@ public class CommentServiceImpl implements CommentService {
         List<ProductCommentsDto> response = new ArrayList<>();
 
         input.forEach(
-                comment -> response.add(
+                model -> response.add(
                         new ProductCommentsDto(
-                                comment.getId(),
-                                comment.getContext(),
-                                comment.getProductId()
+                                model.getId(),
+                                model.getContext(),
+                                model.getProductId(),
+                                model.getUserId()
                         ))
         );
 

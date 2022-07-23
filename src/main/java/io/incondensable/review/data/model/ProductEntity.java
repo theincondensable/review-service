@@ -19,6 +19,9 @@ public class ProductEntity {
     @JoinColumn(name = "manager_id")
     private ManagerEntity manager;
 
+    @Column(name = "is_review_available_for_all")
+    private Byte isReviewAvailableForAll;
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<VoteEntity> votes = new ArrayList<>();
 
@@ -47,6 +50,14 @@ public class ProductEntity {
 
     public void setManager(ManagerEntity manager) {
         this.manager = manager;
+    }
+
+    public Byte getIsReviewAvailableForAll() {
+        return isReviewAvailableForAll;
+    }
+
+    public void setIsReviewAvailableForAll(Byte isReviewAvailableForAll) {
+        this.isReviewAvailableForAll = isReviewAvailableForAll;
     }
 
     public List<VoteEntity> getVotes() {

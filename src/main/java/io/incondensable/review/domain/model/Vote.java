@@ -5,12 +5,14 @@ public class Vote {
     private Byte score;
     private Byte status;
     private Long productId;
+    private Long userId;
 
-    public Vote(Long id, Byte score, Byte status, Long productId) {
+    public Vote(Long id, Byte score, Byte status, Long productId, Long userId) {
         this.id = id;
         this.score = score;
         this.status = status;
         this.productId = productId;
+        this.userId = userId;
     }
 
     public Long getId() {
@@ -43,5 +45,13 @@ public class Vote {
 
     public void setProductId(Long productId) {
         this.productId = productId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

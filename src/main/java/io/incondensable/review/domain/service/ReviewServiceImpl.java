@@ -2,7 +2,7 @@ package io.incondensable.review.domain.service;
 
 import io.incondensable.review.domain.repository.ReviewRepository;
 import io.incondensable.review.web.service.ReviewService;
-import io.incondensable.review.web.dto.ProductWithVotesResponse;
+import io.incondensable.review.web.dto.ProductVotesResponse;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,7 +14,7 @@ public class ReviewServiceImpl implements ReviewService {
         this.reviewRepository = reviewRepository;
     }
 
-    public ProductWithVotesResponse showProductsWithApprovedCommentsAndVotes(long productId) {
+    public ProductVotesResponse showProductsWithApprovedCommentsAndVotes(long productId) {
 //        ProductEntity product = reviewRepository.findProductAndItsApprovedVotes(productId);
 //
 //        ProductWithVotesResponse response = new ProductWithVotesResponse(

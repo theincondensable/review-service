@@ -1,11 +1,11 @@
 package io.incondensable.review.web.dto;
 
-public class ProductWithVotesResponse {
+public class ProductVotesResponse {
     private Long productId;
     private String productDescription;
     private Integer productVoteScore;
 
-    public ProductWithVotesResponse(Long productId, String productDescription, Integer productVoteScore) {
+    public ProductVotesResponse(Long productId, String productDescription, Integer productVoteScore) {
         this.productId = productId;
         this.productDescription = productDescription;
         this.productVoteScore = productVoteScore;

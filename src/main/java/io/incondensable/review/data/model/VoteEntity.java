@@ -21,6 +21,10 @@ public class VoteEntity {
     @JoinColumn(name = "product_id")
     private ProductEntity product;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
     public Long getId() {
         return id;
     }
@@ -51,5 +55,13 @@ public class VoteEntity {
 
     public void setProduct(ProductEntity product) {
         this.product = product;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 }

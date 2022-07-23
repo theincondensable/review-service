@@ -1,6 +1,6 @@
 package io.incondensable.review.web;
 
-import io.incondensable.review.web.dto.ProductWithVotesResponse;
+import io.incondensable.review.web.dto.ProductVotesResponse;
 import io.incondensable.review.web.service.ReviewService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
@@ -21,7 +21,7 @@ public class ReviewController {
     }
 
     @GetMapping("/product/{productId}")
-    public ResponseEntity<ProductWithVotesResponse> getProductVotes(@PathVariable long productId) {
+    public ResponseEntity<ProductVotesResponse> getProductVotes(@PathVariable long productId) {
         return new ResponseEntity<>(reviewService.showProductsWithApprovedCommentsAndVotes(productId), HttpStatus.OK);
     }
 
