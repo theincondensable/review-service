@@ -1,6 +1,6 @@
 package io.incondensable.review.global.constants;
 
-public class ProductsConstants {
+public class Constants {
 
     public enum VoteAndCommentStatus {
         NOT_APPROVED((byte) 1),
@@ -18,17 +18,23 @@ public class ProductsConstants {
     }
 
     public enum ProductStatus {
-        OBSERVABLE((byte) 0),
-        NOT_OBSERVABLE((byte) 1);
+        NOT_REVIEWABLE((byte) 0, "Not Reviewable"),
+        REVIEWABLE((byte) 1, "Reviewable");
 
         private final byte value;
+        private final String title;
 
-        ProductStatus(byte value) {
+        ProductStatus(byte value, String title) {
             this.value = value;
+            this.title = title;
         }
 
         public byte getValue() {
             return value;
+        }
+
+        public String getTitle() {
+            return title;
         }
     }
 

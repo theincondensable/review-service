@@ -4,7 +4,7 @@ import io.incondensable.review.data.dao.VoteDao;
 import io.incondensable.review.data.mapper.impl.VoteMapper;
 import io.incondensable.review.domain.model.Vote;
 import io.incondensable.review.domain.repository.VoteRepository;
-import io.incondensable.review.global.constants.ProductsConstants;
+import io.incondensable.review.global.constants.Constants;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -31,7 +31,7 @@ public class VoteRepositoryImpl implements VoteRepository {
 
     @Override
     public List<Vote> getApprovedVotesOfProduct(Long productId) {
-        return dao.findAllApprovedVotesByProductId(productId, ProductsConstants.VoteAndCommentStatus.APPROVED.getValue())
+        return dao.findAllApprovedVotesByProductId(productId, Constants.VoteAndCommentStatus.APPROVED.getValue())
                 .stream()
                 .map(mapper::mapEntityToDomain)
                 .collect(Collectors.toList());

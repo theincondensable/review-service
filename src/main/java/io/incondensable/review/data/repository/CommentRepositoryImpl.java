@@ -4,7 +4,7 @@ import io.incondensable.review.data.dao.CommentDao;
 import io.incondensable.review.data.mapper.impl.CommentMapper;
 import io.incondensable.review.domain.model.Comment;
 import io.incondensable.review.domain.repository.CommentRepository;
-import io.incondensable.review.global.constants.ProductsConstants;
+import io.incondensable.review.global.constants.Constants;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -33,7 +33,7 @@ public class CommentRepositoryImpl implements CommentRepository {
     public List<Comment> getApprovedCommentsOfProduct(Long productId) {
         return dao.findAllApprovedCommentsByProductId(
                         productId,
-                        ProductsConstants.VoteAndCommentStatus.APPROVED.getValue()
+                        Constants.VoteAndCommentStatus.APPROVED.getValue()
                 ).stream()
                 .map(mapper::mapEntityToDomain)
                 .collect(Collectors.toList());

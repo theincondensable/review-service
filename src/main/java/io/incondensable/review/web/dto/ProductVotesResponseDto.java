@@ -1,13 +1,13 @@
 package io.incondensable.review.web.dto;
 
-public class ProductVotesDto {
+public class ProductVotesResponseDto {
 
     private Long id;
     private Byte score;
     private Long productId;
     private Long userId;
 
-    public ProductVotesDto(Long id, Byte score, Long productId, Long userId) {
+    public ProductVotesResponseDto(Long id, Byte score, Long productId, Long userId) {
         this.id = id;
         this.score = score;
         this.productId = productId;

@@ -1,8 +1,8 @@
-package io.incondensable.review.domain.service.internal;
+package io.incondensable.review.domain.service;
 
 import io.incondensable.review.domain.model.Vote;
 import io.incondensable.review.domain.repository.VoteRepository;
-import io.incondensable.review.web.dto.ProductVotesDto;
+import io.incondensable.review.web.dto.ProductVotesResponseDto;
 import io.incondensable.review.web.service.VoteService;
 import org.springframework.stereotype.Service;
 
@@ -22,25 +22,25 @@ public class VoteServiceImpl implements VoteService {
     }
 
     @Override
-    public List<ProductVotesDto> getAllVotesOfProduct(Long productId) {
+    public List<ProductVotesResponseDto> getAllVotesOfProduct(Long productId) {
         List<Vote> allProductVotes = repository.getVotesOfProduct(productId);
 
         return createResponseDto(allProductVotes);
     }
 
     @Override
-    public List<ProductVotesDto> getAllApprovedVotesOfProduct(Long productId) {
+    public List<ProductVotesResponseDto> getAllApprovedVotesOfProduct(Long productId) {
         List<Vote> allProductApprovedVotes = repository.getApprovedVotesOfProduct(productId);
 
         return createResponseDto(allProductApprovedVotes);
     }
 
-    private List<ProductVotesDto> createResponseDto(List<Vote> input) {
-        List<ProductVotesDto> response = new ArrayList<>();
+    private List<ProductVotesResponseDto> createResponseDto(List<Vote> input) {
+        List<ProductVotesResponseDto> response = new ArrayList<>();
 
         input.forEach(
                 model -> response.add(
-                        new ProductVotesDto(
+                        new ProductVotesResponseDto(
                                 model.getId(),
                                 model.getScore(),
                                 model.getProductId(),

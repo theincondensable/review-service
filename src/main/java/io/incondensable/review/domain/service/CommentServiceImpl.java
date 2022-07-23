@@ -1,8 +1,8 @@
-package io.incondensable.review.domain.service.internal;
+package io.incondensable.review.domain.service;
 
 import io.incondensable.review.domain.model.Comment;
 import io.incondensable.review.domain.repository.CommentRepository;
-import io.incondensable.review.web.dto.ProductCommentsDto;
+import io.incondensable.review.web.dto.ProductCommentsResponseDto;
 import io.incondensable.review.web.service.CommentService;
 import org.springframework.stereotype.Service;
 
@@ -22,25 +22,25 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<ProductCommentsDto> getAllCommentsOfProduct(Long productId) {
+    public List<ProductCommentsResponseDto> getAllCommentsOfProduct(Long productId) {
         List<Comment> comments = repository.getCommentsOfProduct(productId);
 
         return createDto(comments);
     }
 
     @Override
-    public List<ProductCommentsDto> getAllApprovedCommentsOfProduct(Long productId) {
+    public List<ProductCommentsResponseDto> getAllApprovedCommentsOfProduct(Long productId) {
         List<Comment> approvedComments = repository.getApprovedCommentsOfProduct(productId);
 
         return createDto(approvedComments);
     }
 
-    private List<ProductCommentsDto> createDto(List<Comment> input) {
-        List<ProductCommentsDto> response = new ArrayList<>();
+    private List<ProductCommentsResponseDto> createDto(List<Comment> input) {
+        List<ProductCommentsResponseDto> response = new ArrayList<>();
 
         input.forEach(
                 model -> response.add(
-                        new ProductCommentsDto(
+                        new ProductCommentsResponseDto(
                                 model.getId(),
                                 model.getContext(),
                                 model.getProductId(),

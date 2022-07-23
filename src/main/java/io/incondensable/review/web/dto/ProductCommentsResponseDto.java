@@ -1,13 +1,13 @@
 package io.incondensable.review.web.dto;
 
-public class ProductCommentsDto {
+public class ProductCommentsResponseDto {
 
     private Long id;
     private String context;
     private Long productId;
     private Long userId;
 
-    public ProductCommentsDto(Long id, String context, Long productId, Long userId) {
+    public ProductCommentsResponseDto(Long id, String context, Long productId, Long userId) {
         this.id = id;
         this.context = context;
         this.productId = productId;

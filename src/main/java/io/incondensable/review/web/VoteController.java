@@ -1,6 +1,6 @@
 package io.incondensable.review.web;
 
-import io.incondensable.review.web.dto.ProductVotesDto;
+import io.incondensable.review.web.dto.ProductVotesResponseDto;
 import io.incondensable.review.web.service.VoteService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
@@ -24,12 +24,12 @@ public class VoteController {
     }
 
     @GetMapping("/product/{productId}")
-    public ResponseEntity<List<ProductVotesDto>> showProductAllVotes(@PathVariable Long productId) {
+    public ResponseEntity<List<ProductVotesResponseDto>> showProductAllVotes(@PathVariable Long productId) {
         return new ResponseEntity(service.getAllVotesOfProduct(productId), HttpStatus.OK);
     }
 
     @GetMapping("/approved/product/{productId}")
-    public ResponseEntity<List<ProductVotesDto>> showProductAllApprovedVotes(@PathVariable Long productId) {
+    public ResponseEntity<List<ProductVotesResponseDto>> showProductAllApprovedVotes(@PathVariable Long productId) {
         return new ResponseEntity(service.getAllApprovedVotesOfProduct(productId), HttpStatus.OK);
     }
 

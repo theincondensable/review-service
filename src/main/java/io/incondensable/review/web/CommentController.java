@@ -1,6 +1,6 @@
 package io.incondensable.review.web;
 
-import io.incondensable.review.web.dto.ProductCommentsDto;
+import io.incondensable.review.web.dto.ProductCommentsResponseDto;
 import io.incondensable.review.web.service.CommentService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
@@ -24,12 +24,12 @@ public class CommentController {
     }
 
     @GetMapping("/product/{productId}")
-    public ResponseEntity<List<ProductCommentsDto>> showProductAllComments(@PathVariable Long productId) {
+    public ResponseEntity<List<ProductCommentsResponseDto>> showProductAllComments(@PathVariable Long productId) {
         return new ResponseEntity(service.getAllCommentsOfProduct(productId), HttpStatus.OK);
     }
 
     @GetMapping("/approved/product/{productId}")
-    public ResponseEntity<List<ProductCommentsDto>> showProductAllApprovedComments(@PathVariable Long productId) {
+    public ResponseEntity<List<ProductCommentsResponseDto>> showProductAllApprovedComments(@PathVariable Long productId) {
         return new ResponseEntity(service.getAllApprovedCommentsOfProduct(productId), HttpStatus.OK);
     }
 
