@@ -2,7 +2,7 @@ package io.incondensable.review.domain.service;
 
 import io.incondensable.review.domain.model.Product;
 import io.incondensable.review.domain.repository.ProductRepository;
-import io.incondensable.review.web.dto.ReviewableProductResponseDto;
+import io.incondensable.review.web.dto.ProductResponseDto;
 import io.incondensable.review.web.service.ProductService;
 import org.springframework.stereotype.Service;
 
@@ -19,18 +19,30 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ReviewableProductResponseDto> getAllProductsAvailableToReview() {
+    public List<ProductResponseDto> getAllProductsAvailableToReview() {
         List<Product> reviewableProducts = repository.getReviewableProducts();
 
         return createDto(reviewableProducts);
     }
 
-    private List<ReviewableProductResponseDto> createDto(List<Product> input) {
-        List<ReviewableProductResponseDto> response = new ArrayList<>();
+    @Override
+    public ProductResponseDto getProductById(Long productId) {
+        Product product = repository.getProductById(productId);
+
+        return new ProductResponseDto(
+                product.getId(),
+                product.getName(),
+                product.getIsReviewAvailableForAll(),
+                product.getManagerId()
+        );
+    }
+
+    private List<ProductResponseDto> createDto(List<Product> input) {
+        List<ProductResponseDto> response = new ArrayList<>();
 
         input.forEach(
                 product -> response.add(
-                        new ReviewableProductResponseDto(
+                        new ProductResponseDto(
                                 product.getId(),
                                 product.getName(),
                                 product.getIsReviewAvailableForAll(),

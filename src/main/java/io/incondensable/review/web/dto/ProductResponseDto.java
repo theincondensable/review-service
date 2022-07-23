@@ -1,12 +1,12 @@
 package io.incondensable.review.web.dto;
 
-public class ReviewableProductResponseDto {
+public class ProductResponseDto {
     private Long id;
     private String name;
     private Byte isReviewAvailableForAll;
     private Long managerId;
 
-    public ReviewableProductResponseDto(Long id, String name, Byte isReviewAvailableForAll, Long managerId) {
+    public ProductResponseDto(Long id, String name, Byte isReviewAvailableForAll, Long managerId) {
         this.id = id;
         this.name = name;
         this.isReviewAvailableForAll = isReviewAvailableForAll;

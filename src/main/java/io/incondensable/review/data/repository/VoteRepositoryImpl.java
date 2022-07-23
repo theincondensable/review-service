@@ -31,10 +31,19 @@ public class VoteRepositoryImpl implements VoteRepository {
 
     @Override
     public List<Vote> getApprovedVotesOfProduct(Long productId) {
-        return dao.findAllApprovedVotesByProductId(productId, Constants.VoteAndCommentStatus.APPROVED.getValue())
-                .stream()
+        return dao.findAllApprovedVotesByProductId(
+                        productId,
+                        Constants.VoteAndCommentStatus.APPROVED.getValue()
+                ).stream()
                 .map(mapper::mapEntityToDomain)
                 .collect(Collectors.toList());
+    }
+
+    public Integer getCalculationOfAllApprovedVotesOfProduct(Long productId) {
+        return dao.findAllAndCalculateSumOfApprovedScoresByProductId(
+                productId,
+                Constants.VoteAndCommentStatus.APPROVED.getValue()
+        );
     }
 
 }

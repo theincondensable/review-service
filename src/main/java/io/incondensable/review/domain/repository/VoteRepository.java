@@ -10,4 +10,6 @@ public interface VoteRepository {
 
     List<Vote> getApprovedVotesOfProduct(Long productId);
 
+    Integer getCalculationOfAllApprovedVotesOfProduct(Long productId);
+
 }

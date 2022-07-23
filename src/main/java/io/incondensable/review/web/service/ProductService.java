@@ -1,11 +1,13 @@
 package io.incondensable.review.web.service;
 
-import io.incondensable.review.web.dto.ReviewableProductResponseDto;
+import io.incondensable.review.web.dto.ProductResponseDto;
 
 import java.util.List;
 
 public interface ProductService {
 
-    List<ReviewableProductResponseDto> getAllProductsAvailableToReview();
+    List<ProductResponseDto> getAllProductsAvailableToReview();
+
+    ProductResponseDto getProductById(Long productId);
 
 }

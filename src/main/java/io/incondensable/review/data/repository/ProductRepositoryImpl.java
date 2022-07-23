@@ -29,4 +29,11 @@ public class ProductRepositoryImpl implements ProductRepository {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public Product getProductById(Long productId) {
+        return mapper.mapEntityToDomain(
+                dao.getById(productId)
+        );
+    }
+
 }

@@ -1,5 +1,9 @@
 package io.incondensable.review.web.service.facade;
 
-public class ProductFacadeService {
+import io.incondensable.review.web.dto.ProductInformationDto;
+
+public interface ProductFacadeService {
+
+    ProductInformationDto getReviewableProductInformation(Long productId);
 
 }

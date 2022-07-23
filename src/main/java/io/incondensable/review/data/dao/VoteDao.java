@@ -15,4 +15,7 @@ public interface VoteDao extends JpaRepository<VoteEntity, Long> {
     @Query("SELECT v FROM VoteEntity v WHERE v.product.id = :productId AND v.status.code = :voteStatus")
     List<VoteEntity> findAllApprovedVotesByProductId(@Param("productId") long productId, @Param("voteStatus") byte voteStatus);
 
+    @Query("SELECT sum(v.score) FROM VoteEntity v WHERE v.product.id = :productId AND v.status.code = :voteStatus")
+    Integer findAllAndCalculateSumOfApprovedScoresByProductId(@Param("productId") long productId, @Param("voteStatus") byte voteStatus);
+
 }

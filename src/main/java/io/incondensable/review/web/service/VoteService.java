@@ -10,4 +10,6 @@ public interface VoteService {
 
     List<ProductVotesResponseDto> getAllApprovedVotesOfProduct(Long productId);
 
+    Integer getSumOfApprovedVotesOfProduct(Long productId);
+
 }

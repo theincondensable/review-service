@@ -35,6 +35,11 @@ public class VoteServiceImpl implements VoteService {
         return createResponseDto(allProductApprovedVotes);
     }
 
+    @Override
+    public Integer getSumOfApprovedVotesOfProduct(Long productId) {
+        return repository.getCalculationOfAllApprovedVotesOfProduct(productId);
+    }
+
     private List<ProductVotesResponseDto> createResponseDto(List<Vote> input) {
         List<ProductVotesResponseDto> response = new ArrayList<>();
 

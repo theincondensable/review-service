@@ -8,4 +8,6 @@ public interface ProductRepository {
 
     List<Product> getReviewableProducts();
 
+    Product getProductById(Long productId);
+
 }
