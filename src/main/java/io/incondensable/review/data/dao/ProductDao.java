@@ -12,7 +12,6 @@ public interface ProductDao extends JpaRepository<ProductEntity, Long> {
     @Query("SELECT p FROM ProductEntity p WHERE p.isReviewAvailableForAll = :isReviewAvailableForAll")
     List<ProductEntity> findAllReviewableProducts(@Param("isReviewAvailableForAll") byte isReviewAvailableForAll);
 
-    @Query("SELECT p FROM ProductEntity p WHERE p.id = :id")
-    List<ProductEntity> findAllReviewableProducts(@Param("id") long id);
+
 
 }

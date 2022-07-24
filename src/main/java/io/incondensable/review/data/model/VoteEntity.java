@@ -25,6 +25,16 @@ public class VoteEntity {
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
+    public VoteEntity() {
+    }
+
+    public VoteEntity(Byte score, VoteStatus status, ProductEntity product, UserEntity user) {
+        this.score = score;
+        this.status = status;
+        this.product = product;
+        this.user = user;
+    }
+
     public Long getId() {
         return id;
     }

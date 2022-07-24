@@ -10,7 +10,14 @@ public class Comment {
     public Comment() {
     }
 
-    private Comment(Long id, String context, Byte status, Long productId ,Long userId) {
+    private Comment(String context, Byte status, Long productId , Long userId) {
+        this.context = context;
+        this.status = status;
+        this.productId = productId;
+        this.userId = userId;
+    }
+
+    private Comment(Long id, String context, Byte status, Long productId, Long userId) {
         this.id = id;
         this.context = context;
         this.status = status;
@@ -18,8 +25,12 @@ public class Comment {
         this.userId = userId;
     }
 
-    public static Comment build(Long id, String context, Byte status, Long productId, Long userId) {
+    public static Comment buildFromEntity(Long id, String context, Byte status, Long productId, Long userId) {
         return new Comment(id, context, status, productId, userId);
+    }
+
+    public static Comment buildFromDto(String context, Byte status, Long productId, Long userId) {
+        return new Comment(context, status, productId, userId);
     }
 
     public Long getId() {

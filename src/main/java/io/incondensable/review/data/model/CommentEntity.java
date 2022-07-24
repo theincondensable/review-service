@@ -28,11 +28,11 @@ public class CommentEntity {
     public CommentEntity() {
     }
 
-    public CommentEntity(long id, String context, CommentStatus status, ProductEntity product) {
-        this.id = id;
+    public CommentEntity(String context, CommentStatus status, ProductEntity product, UserEntity user) {
         this.context = context;
         this.status = status;
         this.product = product;
+        this.user = user;
     }
 
     public long getId() {
