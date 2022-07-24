@@ -6,12 +6,14 @@ public class ProductVotesResponseDto {
     private Byte score;
     private Long productId;
     private Long userId;
+    private String status;
 
-    public ProductVotesResponseDto(Long id, Byte score, Long productId, Long userId) {
+    public ProductVotesResponseDto(Long id, Byte score, Long productId, Long userId, String status) {
         this.id = id;
         this.score = score;
         this.productId = productId;
         this.userId = userId;
+        this.status = status;
     }
 
     public Long getId() {
@@ -46,4 +48,11 @@ public class ProductVotesResponseDto {
         this.userId = userId;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

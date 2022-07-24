@@ -2,6 +2,7 @@ package io.incondensable.review.domain.service;
 
 import io.incondensable.review.domain.model.Vote;
 import io.incondensable.review.domain.repository.VoteRepository;
+import io.incondensable.review.global.constants.Constants;
 import io.incondensable.review.web.dto.ProductVotesResponseDto;
 import io.incondensable.review.web.service.VoteService;
 import org.springframework.stereotype.Service;
@@ -49,7 +50,10 @@ public class VoteServiceImpl implements VoteService {
                                 model.getId(),
                                 model.getScore(),
                                 model.getProductId(),
-                                model.getUserId()
+                                model.getUserId(),
+                                model.getStatus() == 1 ?
+                                        Constants.VoteAndCommentStatus.NOT_APPROVED.getTitle()
+                                        : Constants.VoteAndCommentStatus.APPROVED.getTitle()
                         )
                 )
         );

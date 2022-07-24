@@ -2,6 +2,7 @@ package io.incondensable.review.domain.service;
 
 import io.incondensable.review.domain.model.Comment;
 import io.incondensable.review.domain.repository.CommentRepository;
+import io.incondensable.review.global.constants.Constants;
 import io.incondensable.review.web.dto.ProductCommentsResponseDto;
 import io.incondensable.review.web.service.CommentService;
 import org.springframework.stereotype.Service;
@@ -44,7 +45,10 @@ public class CommentServiceImpl implements CommentService {
                                 model.getId(),
                                 model.getContext(),
                                 model.getProductId(),
-                                model.getUserId()
+                                model.getUserId(),
+                                model.getStatus() == 1 ?
+                                        Constants.VoteAndCommentStatus.NOT_APPROVED.getTitle()
+                                        : Constants.VoteAndCommentStatus.APPROVED.getTitle()
                         ))
         );
 

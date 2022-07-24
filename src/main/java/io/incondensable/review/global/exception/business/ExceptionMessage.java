@@ -5,16 +5,16 @@ import org.springframework.http.HttpStatus;
 import java.time.LocalDateTime;
 
 public class ExceptionMessage {
-    private String message;
-    private HttpStatus httpStatus;
-    private Object[] args;
-    private LocalDateTime time;
+    private final String message;
+    private final HttpStatus httpStatus;
+    private final Object[] args;
+    private final LocalDateTime time;
 
-    public ExceptionMessage(String message,HttpStatus status, Object[] args, LocalDateTime time) {
+    public ExceptionMessage(String message,HttpStatus status, Object[] args) {
         this.message = message;
         this.httpStatus = status;
         this.args = args;
-        this.time = time;
+        this.time = LocalDateTime.now();
     }
 
     public String getMessage() {

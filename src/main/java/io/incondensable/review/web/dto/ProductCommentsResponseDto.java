@@ -6,12 +6,14 @@ public class ProductCommentsResponseDto {
     private String context;
     private Long productId;
     private Long userId;
+    private String status;
 
-    public ProductCommentsResponseDto(Long id, String context, Long productId, Long userId) {
+    public ProductCommentsResponseDto(Long id, String context, Long productId, Long userId, String status) {
         this.id = id;
         this.context = context;
         this.productId = productId;
         this.userId = userId;
+        this.status = status;
     }
 
     public Long getId() {
@@ -44,5 +46,13 @@ public class ProductCommentsResponseDto {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
